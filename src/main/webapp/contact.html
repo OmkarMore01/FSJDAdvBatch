@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Contact - Caffe Bliss</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.form-container {
+  max-width: 500px;
+  background: white;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px gray;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group textarea {
+  resize: none;
+}
+
+.form-group button {
+  width: 100%;
+  padding: 10px;
+  background: #ff9800;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">☕ Caffe Bliss</div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="form-container">
+  <h2>Contact Us</h2>
+
+  <form action="ContactServlet" method="post">
+
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="text" name="phone" required>
+    </div>
+
+    <div class="form-group">
+      <label>Service</label>
+      <select name="service">
+        <option>Table Booking</option>
+        <option>Bulk Order</option>
+        <option>Birthday Party</option>
+        <option>Corporate Meeting</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Message</label>
+      <textarea name="message" rows="4"></textarea>
+    </div>
+
+    <div class="form-group">
+      <button type="submit">Send Request</button>
+    </div>
+
+  </form>
+</div>
+
+<footer>
+  <p>© 2026 Caffe Bliss | Designed by Omkar</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Coffee Register</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    height:100vh;
+    background:linear-gradient(to right,#3e2723,#6f4e37);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    background:#fff;
+    width:380px;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+    animation:fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#6f4e37;
+}
+
+.input-box{
+    position:relative;
+    margin-bottom:25px;
+}
+
+.input-box input{
+    width:100%;
+    padding:12px 40px 12px 12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    outline:none;
+    font-size:14px;
+}
+
+.input-box label{
+    position:absolute;
+    top:50%;
+    left:12px;
+    color:#777;
+    font-size:13px;
+    transform:translateY(-50%);
+    pointer-events:none;
+    transition:0.3s;
+    background:#fff;
+    padding:0 5px;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label{
+    top:-8px;
+    color:#6f4e37;
+    font-size:12px;
+}
+
+.input-box i{
+    position:absolute;
+    right:12px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:#6f4e37;
+}
+
+.input-box i:hover{
+    color:#3e2723;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#6f4e37;
+    border:none;
+    color:#fff;
+    font-size:16px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#3e2723;
+    transform:scale(1.05);
+}
+
+.footer{
+    text-align:center;
+    margin-top:15px;
+    font-size:13px;
+}
+
+.footer a{
+    text-decoration:none;
+    color:#6f4e37;
+    font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>☕ Coffee Register</h2>
+
+    <form action="RegisterServlet" method="post">
+
+        <div class="input-box">
+            <input type="text" name="username" required>
+            <label>Username</label>
+        </div>
+
+        <div class="input-box">
+            <input type="password" name="password" id="password" required>
+            <label>Password</label>
+            <i class="fa-solid fa-eye" id="togglePassword"></i>
+        </div>
+
+        <button type="submit">Register</button>
+
+        <div class="footer">
+            Already have account? <a href="Login.html">Login</a>
+        </div>
+
+    </form>
+</div>
+
+<script>
+const toggle = document.getElementById("togglePassword");
+const password = document.getElementById("password");
+
+toggle.addEventListener("click", () => {
+    const type = password.getAttribute("type") === "password" ? "text" : "password";
+    password.setAttribute("type", type);
+    toggle.classList.toggle("fa-eye-slash");
+});
+</script>
+
+</body>
+</html>
