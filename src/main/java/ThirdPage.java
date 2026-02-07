@@ -12,16 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class SecondServlet
+ * Servlet implementation class ThirdPage
  */
-@WebServlet("/SecondServlet")
-public class SecondServlet extends HttpServlet {
+@WebServlet("/ThirdPage")
+public class ThirdPage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SecondServlet() {
+    public ThirdPage() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,27 +30,18 @@ public class SecondServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 		HttpSession session=request.getSession(false);
-		
-		if(session!=null && session.getAttribute("uname")!=null &&session.getAttribute("pass")!=null)
+		if(session!=null)
 		{
-			out.println("<h1>Hey this page is cponfidential</h1>");
-			out.print(session.getMaxInactiveInterval());
-			out.println("<a href='ThirdPage'>Logout</a>");
-		}
-		else {
+			session.invalidate();
 			out.println("<script>"
-					+ "alert('Please Login First');"
+					+ "alert('Successfully Logged out');"
 					+ "window.location.href='Hidden.html';"
 					+ "</script>");
 		}
-		
-		
-		
-	
+
 	}
 
 }
